@@ -3,10 +3,11 @@ from datetime import datetime, timedelta, timezone
 import json
 from typing import List
 from zoneinfo import ZoneInfo
-from mcp.types import ErrorData
-from mcp import MCPError
 from pydantic import BaseModel
 from dateutil import parser
+
+# MCP imports removed for pure FastAPI deployment on Render
+# ErrorData and MCPError are only used in MCP server mode
 
 class TimeResult(BaseModel):
     timezone: str
@@ -16,8 +17,8 @@ def get_zoneinfo(timezone_name: str) -> ZoneInfo:
     try:
         return ZoneInfo(timezone_name)
     except Exception as e:
-        error_data = ErrorData(code=-1, message=f"Invalid timezone: {str(e)}")
-        raise MCPError(error_data)
+        # MCPError replaced for pure FastAPI deployment on Render
+        raise ValueError(f"Invalid timezone {timezone_name}: {str(e)}")
 
 def format_get_weather_bytime(data_result) -> str:
     """

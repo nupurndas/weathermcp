@@ -1,6 +1,5 @@
-mcp[cli]
-starlette
+fastapi
 uvicorn[standard]
 httpx
 python-dateutil
-fastapi
+pydantic
