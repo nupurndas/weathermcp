@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from typing import Optional
 import asyncio
 import os
+from datetime import datetime, timedelta
 
 from tools.weather_service import WeatherService
 
