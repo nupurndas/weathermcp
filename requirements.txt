@@ -1,0 +1,6 @@
+mcp[cli]
+starlette
+uvicorn[standard]
+httpx
+python-dateutil
+fastapi
